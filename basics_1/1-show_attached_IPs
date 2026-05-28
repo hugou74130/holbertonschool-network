@@ -1,1 +1,2 @@
-#!/bin/ env bash
+#!usr/bin/env bash
+sudo nano /etc/host
