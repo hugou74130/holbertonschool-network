@@ -1,2 +1,2 @@
-#!usr/bin/env bash
-sudo nano /etc/host
+!usr/bin/env bash
+ cat /etc/hosts
