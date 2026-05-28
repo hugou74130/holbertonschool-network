@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]; then
+  echo "Error: Please run this script as root or using sudo."
+  exit 1
+fi
+
+echo "Configuring custom host resolutions..."
+
+if grep -q "localhost" /etc/hosts; then
+    sed -i '/\blocalhost\b/d' /etc/hosts
+fi
+echo "127.0.0.2       localhost" >> /etc/hosts
+
+
+sed -i '/\bfacebook.com\b/d' /etc/hosts
+echo "8.8.8.8         facebook.com" >> /etc/hosts
+
+echo "Configuration complete! Testing local resolution:"
+echo "------------------------------------------------"
+echo -n "localhost resolves to: " && getent hosts localhost | awk '{print $1}'
+echo -n "facebook.com resolves to: " && getent hosts facebook.com | awk '{print $1}'
