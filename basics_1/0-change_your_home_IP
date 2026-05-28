@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# this scrip 
 if [ "$EUID" -ne 0 ]; then
   echo "Error: Please run this script as root or using sudo."
   exit 1
