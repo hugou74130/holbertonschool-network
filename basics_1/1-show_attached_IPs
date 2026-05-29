@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-#show attached IPs
-if [ "$EUID" -ne 0 ]; then
-  echo "Error: Please run this script as root or using sudo."
-  exit 1
-fi
-echo "Attached IP addresses:"
-ip addr show | grep "inet " | awk '{print $2}' | cut -d'/' -f1
+# This script displays all active IPv4 addresses on the host machine
 
+hostname -I | tr ' ' '\n' | grep -v '^$'
