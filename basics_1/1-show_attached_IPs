@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script displays all active IPv4 addresses on the host machine
+# This script displays all active IPv4 addresses including localhost
 
-hostname -I | tr ' ' '\n' | grep -v '^$'
+ifconfig | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
