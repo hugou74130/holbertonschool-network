@@ -356,9 +356,9 @@ The next time you type a URL, remember: you're not just visiting a website — y
 
 ---
 
-*Written by Hugo Ramos — Full-Stack Software Engineer*
+*Written by Hugo Ramos*
 
-*Published on [Medium](https://medium.com/@hugoramos1466) | [LinkedIn](https://linkedin.com/in/hugoramos)*
+*Published on [Medium](https://medium.com/@hugoramos1466)*
 
 ---
 
