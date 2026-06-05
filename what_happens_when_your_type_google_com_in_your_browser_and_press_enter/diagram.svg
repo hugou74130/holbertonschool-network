@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#212529">
+    What Happens When You Type https://www.google.com and Press Enter
+  </text>
+
+  <!-- Client / Browser -->
+  <rect x="30" y="100" width="140" height="100" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1565c0">Client Browser</text>
+  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#424242">User types URL</text>
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#424242">and presses Enter</text>
+
+  <!-- Arrow: Browser to DNS -->
+  <line x1="170" y1="150" x2="230" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="200" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#555">DNS Query</text>
+
+  <!-- DNS Resolution -->
+  <rect x="240" y="100" width="140" height="100" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="310" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e65100">DNS Resolution</text>
+  <text x="310" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Root → TLD →</text>
+  <text x="310" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Authoritative → IP</text>
+
+  <!-- Return arrow: DNS to Browser with IP -->
+  <path d="M 310 200 Q 310 230 200 230 Q 100 230 100 200" fill="none" stroke="#28a745" stroke-width="2" marker-end="url(#arrowhead-green)"/>
+  <text x="200" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#28a745">Returns IP: 142.250.185.68</text>
+
+  <!-- Arrow: Browser to Firewall -->
+  <line x1="100" y1="200" x2="100" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Firewall -->
+  <rect x="30" y="300" width="140" height="80" rx="10" fill="#ffebee" stroke="#d32f2f" stroke-width="2"/>
+  <text x="100" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#c62828">🔒 Firewall</text>
+  <text x="100" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Traffic inspection</text>
+  <text x="100" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">&amp; filtering</text>
+
+  <!-- Arrow: Firewall to Internet -->
+  <line x1="100" y1="380" x2="100" y2="440" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Internet / Encrypted Traffic -->
+  <rect x="30" y="450" width="140" height="80" rx="10" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="100" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6a1b9a">🔐 HTTPS / TLS</text>
+  <text x="100" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Encrypted Traffic</text>
+  <text x="100" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Port 443</text>
+
+  <!-- Arrow: Internet to Load Balancer -->
+  <line x1="170" y1="490" x2="270" y2="490" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Load Balancer -->
+  <rect x="280" y="440" width="140" height="100" rx="10" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+  <text x="350" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#2e7d32">Load Balancer</text>
+  <text x="350" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Distributes requests</text>
+  <text x="350" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">across servers</text>
+
+  <!-- Arrow: Load Balancer to Web Server -->
+  <line x1="420" y1="490" x2="520" y2="490" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Web Server -->
+  <rect x="530" y="440" width="140" height="100" rx="10" fill="#e0f7fa" stroke="#00838f" stroke-width="2"/>
+  <text x="600" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#006064">Web Server</text>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Serves static content</text>
+  <text x="600" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">or forwards dynamic</text>
+
+  <!-- Arrow: Web Server to App Server -->
+  <line x1="670" y1="490" x2="770" y2="490" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Application Server -->
+  <rect x="780" y="440" width="160" height="100" rx="10" fill="#fff8e1" stroke="#ffa000" stroke-width="2"/>
+  <text x="860" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#e65100">Application Server</text>
+  <text x="860" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Generates dynamic</text>
+  <text x="860" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">web page content</text>
+
+  <!-- Arrow: App Server to Database -->
+  <line x1="940" y1="490" x2="1040" y2="490" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Database -->
+  <rect x="1050" y="440" width="120" height="100" rx="10" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+  <text x="1110" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ad1457">Database</text>
+  <text x="1110" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">Stores &amp; retrieves</text>
+  <text x="1110" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#424242">application data</text>
+
+  <!-- Response arrows (return path, dashed) -->
+  <!-- DB to App Server -->
+  <line x1="1110" y1="440" x2="1110" y2="400" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <line x1="1110" y1="400" x2="860" y2="400" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <text x="985" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#007bff">Data response</text>
+
+  <!-- App Server to Web Server -->
+  <line x1="860" y1="400" x2="600" y2="400" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <text x="730" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#007bff">Generated page</text>
+
+  <!-- Web Server to Load Balancer -->
+  <line x1="600" y1="400" x2="350" y2="400" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <text x="475" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#007bff">HTML/CSS/JS</text>
+
+  <!-- Load Balancer to Client (through internet/firewall) -->
+  <line x1="350" y1="400" x2="100" y2="400" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <line x1="100" y1="400" x2="100" y2="350" stroke="#007bff" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)"/>
+  <text x="220" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#007bff">Response</text>
+
+  <!-- Legend -->
+  <rect x="30" y="620" width="1140" height="150" rx="10" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+  <text x="600" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#212529">Flow Explanation</text>
+
+  <!-- Legend items -->
+  <text x="60" y="680" font-family="Arial, sans-serif" font-size="13" fill="#333">1. <tspan font-weight="bold">DNS Resolution:</tspan> Browser queries DNS to resolve www.google.com to IP address (142.250.185.68)</text>
+  <text x="60" y="705" font-family="Arial, sans-serif" font-size="13" fill="#333">2. <tspan font-weight="bold">Firewall:</tspan> Traffic passes through security firewalls for inspection and filtering</text>
+  <text x="60" y="730" font-family="Arial, sans-serif" font-size="13" fill="#333">3. <tspan font-weight="bold">Encrypted Traffic:</tspan> HTTPS/TLS on port 443 ensures secure, encrypted communication</text>
+  <text x="60" y="755" font-family="Arial, sans-serif" font-size="13" fill="#333">4. <tspan font-weight="bold">Load Balancer:</tspan> Distributes incoming requests across multiple backend servers</text>
+
+  <text x="630" y="680" font-family="Arial, sans-serif" font-size="13" fill="#333">5. <tspan font-weight="bold">Web Server:</tspan> Receives HTTP request, serves static files or forwards to application server</text>
+  <text x="630" y="705" font-family="Arial, sans-serif" font-size="13" fill="#333">6. <tspan font-weight="bold">Application Server:</tspan> Executes business logic and generates dynamic web page content</text>
+  <text x="630" y="730" font-family="Arial, sans-serif" font-size="13" fill="#333">7. <tspan font-weight="bold">Database:</tspan> Application server queries database to retrieve required data</text>
+  <text x="630" y="755" font-family="Arial, sans-serif" font-size="13" fill="#333">8. <tspan font-weight="bold">Response:</tspan> Generated page travels back through the stack to the browser</text>
+
+  <!-- Direction indicators -->
+  <text x="60" y="580" font-family="Arial, sans-serif" font-size="12" fill="#555">— Solid arrows: Request flow (Client → Server)</text>
+  <text x="60" y="600" font-family="Arial, sans-serif" font-size="12" fill="#555">- - Dashed arrows: Response flow (Server → Client)</text>
+</svg>
